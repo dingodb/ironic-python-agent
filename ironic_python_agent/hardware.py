@@ -2179,8 +2179,10 @@ class GenericHardwareManager(HardwareManager):
                 msg = ('nvme-cli did not return any supported format modes '
                        'for device: {device}').format(
                     device=block_device.name)
-                LOG.error(msg)
-                raise errors.BlockDeviceEraseError(msg)
+                # LOG.error(msg)
+                # raise errors.BlockDeviceEraseError(msg)
+                LOG.info(msg)
+                return True
         else:
             # If nvme-cli output is empty, raise an exception
             msg = ('nvme-cli did not return any information '
